@@ -1,0 +1,5 @@
+  <div *ngIf="products$ | async as products" class="dashboard">
+    <app-product *ngFor="let product of $any(products)" [product]="product" class="box">
+      {{product.title}}
+    </app-product>
+  </div>

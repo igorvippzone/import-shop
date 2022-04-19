@@ -1,0 +1,25 @@
+<nav class='navbar bg-dark'>
+  <h2>Import Shop</h2>
+
+  <ul>
+    <li routerLinkActive="active">
+      <a href="#" [routerLink]="['/admin']">"Админ панель"</a>
+    </li>
+    <li routerLinkActive="active">
+      <a href="#">Телефоны</a>
+    </li>
+    <li routerLinkActive="active">
+      <a href="#">Планшеты</a>
+    </li>
+    <li routerLinkActive="active">
+      <a href="#">Ноутбуки</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/cart']">Корзина</a>
+    </li>
+  </ul>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+

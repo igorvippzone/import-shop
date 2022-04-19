@@ -1,0 +1,35 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <h2>Войти как Администратор</h2>
+  <hr/>
+  <small>login: admin@mail.ru</small><br />
+  <small>password: 123123</small>
+  <hr/>
+  <div class="form-control">
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email"/>
+    <div *ngIf="form.get('email').touched && form.get('email')?.invalid" class="valdadtion">
+      <small *ngIf="form.get('email').errors['required']" >Введите Email. </small>
+      <small *ngIf="form.get('email').errors['email']" >Введите валидный Email</small>
+    </div>
+  </div>
+  <div class="form-control">
+    <label for="password">Password</label>
+    <input id="password" type="password" formControlName="password"/>
+    <div *ngIf="form.get('password').touched && form.get('password').invalid" class="valdadtion">
+      <small *ngIf="form.get('password').errors['required']" >Введите Password. </small>
+      <small *ngIf="form.get('password').errors['minlength']" >Пароль должен быть минимум
+        {{form.get('password').errors['minlength']?.requiredLength}} символов. Сейчас:
+        {{form.get('password').errors['minlength']?.actualLength}} символов
+      </small>
+    </div>
+  </div>
+
+<pre>{{form.get('email').errors | json}}</pre>
+
+  <button
+    type="submit"
+    class="btn btn-primary btn-block"
+    [disabled]="form.invalid || submitted">
+      Войти
+  </button>
+</form>

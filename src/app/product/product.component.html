@@ -1,0 +1,9 @@
+<div class="text-center">
+  <h2>{{ product.title }}</h2>
+  <div class="flex-center">
+    <quill-view-html [content]="product.photo"></quill-view-html>
+  </div>
+  <h2>Price: {{ product.price }} Рублей</h2>
+  <button [routerLink]="['/product', product.id]" class="btn btn-dark" >Открыть</button>
+  <button [routerLink]="['/cart']" class="btn btn-dark">Добавить в корзину</button>
+</div>
